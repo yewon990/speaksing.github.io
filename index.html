@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Speak&Sing</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script defer src="https://pyscript.net/latest/pyscript.js"></script>
+<style>
+body {font-family: "Lato", sans-serif}
+.mySlides {display: none}
+#add_todo {margin-left: 5px}
+#demo_page:hover{
+  background: silver;
+}
+table {color: black; font-size: 15px}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-black w3-card">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+    <a href="#abstract" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ABSTRACT</a>
+    <div class="w3-dropdown-hover w3-hide-small">
+      <button class="w3-padding-large w3-button" title="More"><a href="#audio" style="text-decoration-line: none;">AUDIO DEMO </a><i class="fa fa-caret-down"></i></button>     
+      <div class="w3-dropdown-content w3-bar-block w3-card-4">
+        <a href="#audio" class="w3-bar-item w3-button">Overall performance</a>
+        <a href="#TAP" class="w3-bar-item w3-button">Text Pitch and Duration Predictor</a>
+        <a href="#SAE" class="w3-bar-item w3-button">Style-based Attribute Encoder</a>
+      </div>
+      </div> 
+  </div>
+</div>
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:100%;margin-top:46px">
+
+  <!-- Automatic Slideshow Images -->
+  <!-- <div class="mySlides w3-display-container w3-center">
+    <img src="figures/logo.png" style="width:100%">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+    </div>
+  </div> -->
+
+  
+<!------------------------------------------------------------------ Abstract ----------------------------------------------------------->
+  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="abstract">
+    <h2 class="w3-wide"><b>Speak&Sing</b></h2>
+    <p class="w3-opacity"><i>Unified Speech and Singing Voice Synthesizer Controlling Timbre, Style, and Emotion</i></p>
+    <p class="w3-justify">We propose a novel unified voice synthesizer, <b>Speak&Sing</b>, that synthesizes speech and singing voices,  reflecting the timbre, style, and emotion of the speaker or singer. <b>Speak&Sing</b> is trainable with separate speech and singing voice datasets, transferring the timbre of the speech dataset to singing voice synthesis, and vice versa.
+        It resolves the discrepancy between TTS and SVS in their inputs by estimating text pitch and text duration from the text transcript, using them as proxies for note pitch and note duration. 
+        <b>Speak&Sing</b> accurately represents the pronunciation of both speech and singing voices through phoneme-pitch-duration (PPD) embeddings. <b>Speak&Sing</b> expresses timbre by adding a timbre embedding to the PPD embeddings, and emotion and style by adding variances to pitch, energy, and duration. To address the difference in the distribution of acoustic features and in the way style and emotion are expressed, it first estimates the main trends of pitch and duration from the note pitch/duration for SVS and from the text pitch/duration for TTS, and then expresses style and emotion by adding variances in pitch and duration.
+        In experiments, <b>Speak&Sing</b> seamlessly synthesized speech and singing voice, successfully transferring timbre across domain. It also exhibited improved audio quality and expressiveness compared to the baseline models. Up to our knowledge, <b>Speak&Sing</b> is the first expressive unified speech and singing voice synthesizer for non-tonal languages that does not rely on a large language model.
+      <!-- <a style='text-align: center; font-size: 15px; color: #9F8772;' href="https://arxiv.org/pdf/2203.00931.pdf" > U-Singer Paper link</a> -->
+      </p>
+  </div>
+
+  <div class="images" id="images" style="text-align: center;">
+        <img src="figures/OverallArchitecture.PNG" style="width:650px"/>
+        <p>Model Overall Structure</p>
+    <br><br><br><br>
+  </div>
+  
+  
+<!--------------------------------------------- Overall Performance ---------------------------------------------->
+  <div class="w3-black" id="audio">
+    <div class="w3-container w3-content w3-padding-64" style="max-width:1600px">
+      <h2 class="w3-wide w3-center">Audio Demo</h2>
+      <ul class="w3-ul w3-border w3-white w3-text-grey">
+        <li class="w3-padding" style="font-size: 35px;  text-align:center; color:black;"><br><b>Demonstaration of overall performance</b>
+          <p style="font-size: 23px; color:black; text-align:center;">Please listen to the samples, <b style="color: red">focusing on expressiveness and fidelity.</b> </p>
+          <p style="font-size: 20px; color:black; text-align:center;">Samples of speech</p>
+          <table align="center">
+            <colgroup span="5" class="columns"></colgroup>
+            <tr align="center">
+              <th>G.T.</th>
+              <th>PITS</th>
+              <th style="color: blue;">Speak&Sing</th>
+            </tr>
+            <tr>
+              <td><audio controls src="audio/G.T./01_G1A4E1S0C0_LYT_001960_GT.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+              <td><audio controls src="audio/baseline/01_G1A4E1S0C0_LYT_001960.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+              <td><audio controls src="audio/ours/01_G1A4E1S0C0_LYT_001960_pred.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+            </tr>
+            <tr>
+              <td><audio controls src="audio/G.T./08_G2A3E2S0C0_ASH_001961_GT.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+              <td><audio controls src="audio/baseline/08_G2A3E2S0C0_ASH_001961.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+              <td><audio controls src="audio/ours/08_G2A3E2S0C0_ASH_001961_pred.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+            </tr>
+            <tr>
+              <td><audio controls src="audio/G.T./03_G1A3E3S0C0_LJB_001956_GT.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+              <td><audio controls src="audio/baseline/03_G1A3E3S0C0_LJB_001956.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+              <td><audio controls src="audio/ours/03_G1A3E3S0C0_LJB_001956_pred.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+            </tr>
+          </table>
+          <p style="font-size: 20px; color:black; text-align:center;"><br>Samples of singing voice</p>
+          <table align="center">
+            <colgroup span="5" class="columns"></colgroup>
+            <tr align="center">
+              <th>G.T.</th>
+              <th>VISinger2</th>
+              <th style="color: blue;">Speak&Sing</th>
+            </tr>
+            <tr>
+              <td><audio controls src="audio/G.T./F0_neu011_03_00_GT.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+              <td><audio controls src="audio/baseline/F0_neu011_03_00.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+              <td><audio controls src="audio/ours/F0_neu011_03_00_pred.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+            </tr>
+            <tr>
+              <td><audio controls src="audio/G.T./F2_sad010_02_07_GT.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+              <td><audio controls src="audio/baseline/F2_sad010_02_07.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+              <td><audio controls src="audio/ours/F2_sad010_02_07_pred.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+            </tr>
+            <tr>
+              <td><audio controls src="audio/G.T./M2_sad010_14_07_GT.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+              <td><audio controls src="audio/baseline/M2_sad010_14_07.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+              <td><audio controls src="audio/ours/M2_sad010_14_07_pred.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+            </tr>
+          </table>
+     
+          <br>
+        </li>
+        
+      </div>
+    </ul>
+
+  </div>
+</div>
+
+<!--------------------------------------------------- Statistical Pitch Predictor ------------------------------------------------>
+  <div class="w3-black" id="SPP">
+    <div class="w3-container w3-content w3-padding-64" style="max-width:1600px">
+      <ul class="w3-ul w3-border w3-white w3-text-grey">
+        <li class="w3-padding" style="font-size: 35px;  text-align:center; color:black;"><br><b>Speech Style Transfer</b><br>
+          <p style="font-size: 23px; color:black; text-align:center;">Style-based attribute adaptor controls <b style="color:red;">the speech style and timbre separately.</b><br>Please listen to the samples <b style="color:red;">focusing on speech style (e.g. intonation, speech speed) and timbre </b> <br> which have high similarity with reference samples</p>
+          <p style="font-size: 15px; color:black;">
+            The audio samples are corresponding to figure 5 in the paper. Please check more details of the figure in the paper.</p>
+          <img src="figures/Style-specificAttributeAdaptor.PNG" style="width:800px;"/>
+          <table align="center">
+            <colgroup span="5" class="columns"></colgroup>
+            <tr align="center">
+              <th style="padding-left: 35px;">Reference sample for timbre</th>
+              <th style="padding-left: 35px;">Reference sample for style</th>
+              <th style="padding-left: 35px; color:blue;">Synthesized by proposed model</th>
+            </tr>
+            <tr>
+              <td style="padding-left: 35px;"><audio controls src="audio/G.T./16_G1A3E7S0C0_PGJ_001883_GT.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+              <td style="padding-left: 35px;"><audio controls src="audio/G.T./10_G2A3E7S0C0_YSH_001883_GT.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+              <td style="padding-left: 35px;"><audio controls src="audio/ours/16_G1A3E7S0C0_PGJ_001883_pred_change_style_speaker.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+            </tr>
+            <tr>
+              <td style="padding-left: 35px;"><audio controls src="audio/G.T./10_G2A3E7S0C0_YSH_001883_GT.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+              <td style="padding-left: 35px;"><audio controls src="audio/G.T./16_G1A3E7S0C0_PGJ_001883_GT.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+              <td style="padding-left: 35px;"><audio controls src="audio/ours/16_G1A3E7S0C0_PGJ_001883_pred_change_timbre_speaker.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+            </tr>
+          </table>
+          <br>
+        </li>
+        
+      </div>
+    </ul>
+
+  </div>
+</div>
+
+<!------------------------------------------------------------------ CRDP ----------------------------------------------------------->
+<div class="w3-black" id="CRDP">
+  <div class="w3-container w3-content w3-padding-64" style="max-width:1600px">
+    <ul class="w3-ul w3-border w3-white w3-text-grey">
+        <li class="w3-padding" style="font-size: 35px;  text-align:center; color:black;"><br><b>Cross-domain transfer</b><br>
+          <p style="font-size: 23px; color:black; text-align:center;">We can transfer the domain (speech/singing voice) by <b style="color: red">style-based attribute adaptor</b><br>Please listen to the sample, <b style="color: red">focusing on timbre</b> which have high similarity with reference samples.</p>
+          <table align="center">
+            <colgroup span="5" class="columns"></colgroup>
+            <tr align="center">
+              <th>G.T sample of speaker</th>
+              <th style="color:blue;">Synthesized voice with same timbre of G.T.</th>
+              <th>Reference sample for timbre</th>
+              <th style="color:blue;">Synthesized voice with timbre<br>from different domain</th>
+            </tr>
+            <tr>
+              <td style="padding-left: 35px;"><audio controls src="audio/G.T./01_G1A4E2S0C0_LYT_001962_GT.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+              <td style="padding-left: 35px;"><audio controls src="audio/ours/01_G1A4E2S0C0_LYT_001962_pred.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+              <td style="padding-left: 35px;"><audio controls src="audio/G.T./M2_sad010_26_07_GT.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+              <td style="padding-left: 35px;"><audio controls src="audio/ours/01_G1A4E2S0C0_LYT_001962_pred_domain_transfer.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+            </tr>
+            <tr>
+              <td style="padding-left: 35px;"><audio controls src="audio/G.T./10_G2A3E1S0C0_YSH_001961_GT.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+              <td style="padding-left: 35px;"><audio controls src="audio/ours/10_G2A3E1S0C0_YSH_001961_pred.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+              <td style="padding-left: 35px;"><audio controls src="audio/G.T./F0_neu011_09_00_GT.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+              <td style="padding-left: 35px;"><audio controls src="audio/ours/10_G2A3E1S0C0_YSH_001961_pred_domain_transfer.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+            </tr>
+            <tr>
+              <td style="padding-left: 35px;"><audio controls src="audio/G.T./M2_sad010_01_10_GT.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+              <td style="padding-left: 35px;"><audio controls src="audio/ours/M2_sad010_01_10_pred.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+              <td style="padding-left: 35px;"><audio controls src="audio/G.T./01_G1A4E1S0C0_LYT_001960_GT.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+              <td style="padding-left: 35px;"><audio controls src="audio/ours/M2_sad010_01_10_pred_domain_transfer.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+            </tr>
+          </table>
+          <br>          
+        </li>
+
+        
+      </div>
+    </ul>
+
+  </div>
+</div>
+
+</div>
+
+<script>
+// Automatic Slideshow - change image every 4 seconds
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 4000);    
+}
+
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+// When the user clicks anywhere outside of the modal, close it
+var modal = document.getElementById('ticketModal');
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+</body>
+</html>
