@@ -124,7 +124,7 @@ table {color: black; font-size: 15px}
   </div>
 </div>
 
-<!--------------------------------------------------- Statistical Pitch Predictor ------------------------------------------------>
+<!--------------------------------------------------- Speech Style Transfer ------------------------------------------------>
   <div class="w3-black" id="SPP">
     <div class="w3-container w3-content w3-padding-64" style="max-width:1600px">
       <ul class="w3-ul w3-border w3-white w3-text-grey">
@@ -160,7 +160,44 @@ table {color: black; font-size: 15px}
   </div>
 </div>
 
-<!------------------------------------------------------------------ CRDP ----------------------------------------------------------->
+<!--------------------------------------------------- PPD embedding ------------------------------------------------>
+  <div class="w3-black" id="PPD">
+    <div class="w3-container w3-content w3-padding-64" style="max-width:1600px">
+      <ul class="w3-ul w3-border w3-white w3-text-grey">
+        <li class="w3-padding" style="font-size: 35px;  text-align:center; color:black;"><br><b>PPD Embedding</b><br>
+          <p style="font-size: 23px; color:black; text-align:center;">간단한 설명 <b style="color:red;">강조내용.</b><br>Please listen to the samples <b style="color:red;">focusing on speech style (e.g. intonation, speech speed) and timbre </b> <br> which have high similarity with reference samples</p>
+          <p style="font-size: 15px; color:black;">
+            The audio samples are corresponding to figure 번호 in the paper. Please check more details of the figure in the paper.</p>
+          <img src="figures/Style-specificAttributeAdaptor.PNG" style="width:800px;"/>
+          <table align="center">
+            <colgroup span="5" class="columns"></colgroup>
+            <tr align="center">
+              <th style="padding-left: 35px;">G.T.</th>
+              <th style="padding-left: 35px;">Speak&Sing (without PPD Embedding)</th>
+              <th style="padding-left: 35px; color:blue;">Speak&Sing (with PPD Embedding)</th>
+            </tr>
+            <!-- 여기 아래 샘플들 교체해주시면 됩니다!! -->
+            <tr>
+              <td style="padding-left: 35px;"><audio controls src="audio/G.T./16_G1A3E7S0C0_PGJ_001883_GT.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td> 
+              <td style="padding-left: 35px;"><audio controls src="audio/G.T./10_G2A3E7S0C0_YSH_001883_GT.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+              <td style="padding-left: 35px;"><audio controls src="audio/ours/16_G1A3E7S0C0_PGJ_001883_pred_change_style_speaker.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+            </tr>
+            <tr>
+              <td style="padding-left: 35px;"><audio controls src="audio/G.T./10_G2A3E7S0C0_YSH_001883_GT.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+              <td style="padding-left: 35px;"><audio controls src="audio/G.T./16_G1A3E7S0C0_PGJ_001883_GT.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+              <td style="padding-left: 35px;"><audio controls src="audio/ours/16_G1A3E7S0C0_PGJ_001883_pred_change_timbre_speaker.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+            </tr>
+          </table>
+          <br>
+        </li>
+        
+      </div>
+    </ul>
+
+  </div>
+</div>
+  
+<!------------------------------------------------------------------ Cross-domain transfer ----------------------------------------------------------->
 <div class="w3-black" id="CRDP">
   <div class="w3-container w3-content w3-padding-64" style="max-width:1600px">
     <ul class="w3-ul w3-border w3-white w3-text-grey">
