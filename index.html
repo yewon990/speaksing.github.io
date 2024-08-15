@@ -159,44 +159,6 @@ table {color: black; font-size: 15px}
 
   </div>
 </div>
-
-<!--------------------------------------------------- PPD embedding ------------------------------------------------>
-  <div class="w3-black" id="PPD">
-    <div class="w3-container w3-content w3-padding-64" style="max-width:1600px">
-      <ul class="w3-ul w3-border w3-white w3-text-grey">
-        <li class="w3-padding" style="font-size: 35px;  text-align:center; color:black;"><br><b>PPD Embedding</b><br>
-          <p style="font-size: 23px; color:black; text-align:center;">Please listen to the sample, focusing on <b style="color:red;"> pronunciation.</b> <br> The model with PPD embedding has more accurate pronunciation.</p>
-          <p style="font-size: 15px; color:black;">
-            PPD embeddings, combining pitch, duration, and phoneme, improve speech pronunciation. PPD embeddings have been used in SVS but we applied it to TTS as well, by estimating text pitch and duration. </b> <br> Please check more details in the section III.C </p>
-          <!-- 이미지 교체필요 -->
-          <img src="figures/Style-specificAttributeAdaptor.PNG" style="width:800px;"/>
-          <table align="center">
-            <colgroup span="5" class="columns"></colgroup>
-            <tr align="center">
-              <th style="padding-left: 35px;">G.T.</th>
-              <th style="padding-left: 35px;">Speak&Sing (without PPD Embedding)</th>
-              <th style="padding-left: 35px; color:blue;">Speak&Sing (with PPD Embedding)</th>
-            </tr>
-            <!-- 여기 아래 샘플들 교체해주시면 됩니다!! -->
-            <tr>
-              <td style="padding-left: 35px;"><audio controls src="audio/G.T./16_G1A3E7S0C0_PGJ_001883_GT.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td> 
-              <td style="padding-left: 35px;"><audio controls src="audio/G.T./10_G2A3E7S0C0_YSH_001883_GT.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
-              <td style="padding-left: 35px;"><audio controls src="audio/ours/16_G1A3E7S0C0_PGJ_001883_pred_change_style_speaker.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
-            </tr>
-            <tr>
-              <td style="padding-left: 35px;"><audio controls src="audio/G.T./10_G2A3E7S0C0_YSH_001883_GT.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
-              <td style="padding-left: 35px;"><audio controls src="audio/G.T./16_G1A3E7S0C0_PGJ_001883_GT.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
-              <td style="padding-left: 35px;"><audio controls src="audio/ours/16_G1A3E7S0C0_PGJ_001883_pred_change_timbre_speaker.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
-            </tr>
-          </table>
-          <br>
-        </li>
-        
-      </div>
-    </ul>
-
-  </div>
-</div>
   
 <!------------------------------------------------------------------ Cross-domain transfer ----------------------------------------------------------->
 <div class="w3-black" id="CRDP">
