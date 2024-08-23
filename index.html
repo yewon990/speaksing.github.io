@@ -243,3 +243,44 @@ window.onclick = function(event) {
 
 </body>
 </html>
+
+
+<!--------------------------------------------------- PPD embedding ------------------------------------------------>
+  <div class="w3-black" id="PPD">
+    <div class="w3-container w3-content w3-padding-64" style="max-width:1600px">
+      <ul class="w3-ul w3-border w3-white w3-text-grey">
+        <li class="w3-padding" style="font-size: 35px;  text-align:center; color:black;"><br><b>PPD Embedding</b><br>
+          <p style="font-size: 23px; color:black; text-align:center;">Please listen to the sample, focusing on <b style="color:red;"> pitch, rhythm, and pronunciation. </p>
+          <p style="font-size: 15px; color:black;">
+            We applied PPD embeddings, commonly used in SVS, to both SVS and TTS. </b> <br> 
+            This not only enhances the accurate reproduction of note pitch and note duration </b> <br>
+            but also improves speech pronunciation, For further details, please refer to Section III.C. </p>
+          <!-- 이미지 교체필요 -->
+          <img src="figures/Style-specificAttributeAdaptor.PNG" style="width:800px;"/>
+          <table align="center">
+            <colgroup span="5" class="columns"></colgroup>
+            <tr align="center">
+              <th style="padding-left: 35px;">G.T.</th>
+              <th style="padding-left: 35px;">Speak&Sing (without PPD Embedding)</th>
+              <th style="padding-left: 35px; color:blue;">Speak&Sing (with PPD Embedding)</th>
+            </tr>
+            <!-- 여기 아래 샘플들 교체해주시면 됩니다!! -->
+            <tr>
+              <td style="padding-left: 35px;"><audio controls src="audio/G.T./PPD_gt1_speech.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td> 
+              <td style="padding-left: 35px;"><audio controls src="audio/baseline/PPD_without1_speech.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+              <td style="padding-left: 35px;"><audio controls src="audio/ours/PPD_with1_speech.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+            </tr>
+            <tr>
+              <td style="padding-left: 35px;"><audio controls src="audio/G.T./PPD_gt2.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+              <td style="padding-left: 35px;"><audio controls src="audio/baseline/PPD_without2.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+              <td style="padding-left: 35px;"><audio controls src="audio/ours/PPD_with2.wav">해당 브라우저는 audio를 지원하지 않습니다.</audio></td>
+            </tr>
+          </table>
+          <br>
+        </li>
+        
+      </div>
+    </ul>
+
+  </div>
+</div>
